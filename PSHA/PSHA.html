@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="tests" href="../tests/modules.html" /><link rel="prev" title="PSHA" href="modules.html" />
 
     <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>PSHA package - PSHA 0.0.2 documentation</title>
+        <title>PSHA package - PSHA 0.0.1.dev0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">PSHA 0.0.2 documentation</div></a>
+      <a href="../index.html"><div class="brand">PSHA 0.0.1.dev0 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">PSHA 0.0.2 documentation</span>
+  <span class="sidebar-brand-text">PSHA 0.0.1.dev0 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -204,67 +204,16 @@
 <section id="module-PSHA.PSHA">
 <span id="psha-psha-module"></span><h2>PSHA.PSHA module<a class="headerlink" href="#module-PSHA.PSHA" title="Permalink to this headline">#</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.Area">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">Area</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Area" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#PSHA.PSHA.SeismicSource" title="PSHA.PSHA.SeismicSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSHA.PSHA.SeismicSource</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Area.calculateDistanceDistribution">
-<span class="sig-name descname"><span class="pre">calculateDistanceDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Area.calculateDistanceDistribution" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Area.mesh">
-<span class="sig-name descname"><span class="pre">mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qa'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Area.mesh" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Area.plotMesh">
-<span class="sig-name descname"><span class="pre">plotMesh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Area.plotMesh" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-</dd></dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.Line">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Line" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#PSHA.PSHA.SeismicSource" title="PSHA.PSHA.SeismicSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSHA.PSHA.SeismicSource</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Line.calculateDistanceDistribution">
-<span class="sig-name descname"><span class="pre">calculateDistanceDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Line.calculateDistanceDistribution" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-</dd></dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.Point">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">Point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Point" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#PSHA.PSHA.SeismicSource" title="PSHA.PSHA.SeismicSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSHA.PSHA.SeismicSource</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Point.calculateDistanceDistribution">
-<span class="sig-name descname"><span class="pre">calculateDistanceDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Point.calculateDistanceDistribution" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-</dd></dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.Rectangle">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">Rectangle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Rectangle" title="Permalink to this definition">#</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#PSHA.PSHA.Area" title="PSHA.PSHA.Area"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSHA.PSHA.Area</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.Rectangle.mesh">
-<span class="sig-name descname"><span class="pre">mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.Rectangle.mesh" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
-</dd></dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.SeismicSource">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">SeismicSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.SeismicSource" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="PSHA.PSHA.A">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.A" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.SeismicSource.plotDistanceDistribution">
-<span class="sig-name descname"><span class="pre">plotDistanceDistribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.SeismicSource.plotDistanceDistribution" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<p>docstring for A</p>
 </dd></dl>
 <dl class="py class">
-<dt class="sig sig-object py" id="PSHA.PSHA.SeismicSourceModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">SeismicSourceModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interest_point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.SeismicSourceModel" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="PSHA.PSHA.B">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.PSHA.</span></span><span class="sig-name descname"><span class="pre">B</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.B" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>docstring for SeismicSourceModel</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="PSHA.PSHA.SeismicSourceModel.addSource">
-<span class="sig-name descname"><span class="pre">addSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.PSHA.SeismicSourceModel.addSource" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<p>docstring for A</p>
 </dd></dl>
 </section>
 <section id="module-PSHA.PSHALogger">
