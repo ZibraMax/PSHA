@@ -15,7 +15,7 @@
 			"group": "build",
 			"type": "shell",
 			"command": "python",
-			"args": ["setup.py", "sdist", "bdist_wheel"],
+			"args": ["-m", "build"],
 			"presentation": {
 				"showReuseMessage": false
 			}
@@ -55,7 +55,7 @@
 			"label": "Compile docs",
 			"group": "build",
 			"type": "shell",
-			"command": "cd docs;make clean;cd ..;sphinx-apidoc -f --module-first -o docs/source ./ /*setup*;cd docs;make html",
+			"command": "cd docs;make clean;cd ..;sphinx-apidoc -f --module-first -o ./docs/source/PSHA ./src/PSHA;sphinx-apidoc -f --module-first -o ./docs/source/tests ./tests;cd docs;make html",
 			"problemMatcher": []
 		},
 		{
