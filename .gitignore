@@ -56,7 +56,7 @@ cover/
 *.pot
 
 # Sphinx documentation
-docs/_build/
+docs/build/
 
 
 # Jupyter Notebook
