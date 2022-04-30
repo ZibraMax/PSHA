@@ -1,13 +1,13 @@
 import unittest
 
-# from sample.simple import add_one
+from PSHA.PSHA import A
 
 
-# class TestSimple(unittest.TestCase):
+class TestA(unittest.TestCase):
 
-#     def test_add_one(self):
-#         self.assertEqual(add_one(5), 6)
+    def test_add_one(self):
+        self.assertEqual(5, 5)
 
 
 if __name__ == '__main__':
-    # unittest.main()
+    unittest.main()
