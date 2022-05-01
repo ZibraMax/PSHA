@@ -1,6 +1,6 @@
 import unittest
 
-from PSHA.PSHA import A
+from PSHA.SSM import A
 
 
 class TestA(unittest.TestCase):

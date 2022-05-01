@@ -1,2 +1,3 @@
-__version__ = '0.0.2'
-from PSHA import *
+__version__ = '0.1.0'
+from .SSM import *
+from .GMM import *

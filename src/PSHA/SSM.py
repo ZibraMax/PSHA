@@ -11,6 +11,7 @@ class SeismicSource():
         self.b = b
         self.beta = b * np.log(10)
         self.alpha = a * np.log(10)
+        self.lambdaMin = np.exp(self.alpha-self.beta*self.mmin)
         self.nm = nm
         self.r = None
         self.Pr = None
