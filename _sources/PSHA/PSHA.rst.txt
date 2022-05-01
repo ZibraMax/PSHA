@@ -9,10 +9,10 @@ PSHA package
 Submodules
 ----------
 
-PSHA.GMM module
----------------
+PSHA.PSHA module
+----------------
 
-.. automodule:: PSHA.GMM
+.. automodule:: PSHA.PSHA
    :members:
    :undoc-members:
    :show-inheritance:
@@ -21,14 +21,6 @@ PSHA.PSHALogger module
 ----------------------
 
 .. automodule:: PSHA.PSHALogger
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-PSHA.SSM module
----------------
-
-.. automodule:: PSHA.SSM
    :members:
    :undoc-members:
    :show-inheritance:
