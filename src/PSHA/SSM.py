@@ -1,10 +1,12 @@
+from typing import List
 import numpy as np
 import matplotlib.pyplot as plt
 import triangle as tr
 
 
 class SeismicSource():
-    def __init__(self, mmax, mmin, a, b, nm=10):
+    def __init__(self, mmax: float, mmin: float, a: float, b: float, nm: int = 10) -> None:
+
         self.mmax = mmax
         self.mmin = mmin
         self.a = a
@@ -20,7 +22,7 @@ class SeismicSource():
         self.Pm = self.beta*np.exp(-self.beta*(self.m-self.mmin))/(
             1-np.exp(-self.beta*(self.mmax-self.mmin)))*self.dm
 
-    def plotDistanceDistribution(self):
+    def plotDistanceDistribution(self) -> None:
         try:
             dx = self.r[1]-self.r[0]
         except Exception as e:
@@ -34,23 +36,23 @@ class SeismicSource():
 
 
 class Point(SeismicSource):
-    def __init__(self, coords, mmax, mmin, a, b, **kargs):
+    def __init__(self, coords: np.ndarray, mmax: float, mmin: float, a: float, b: float, **kargs) -> None:
         SeismicSource.__init__(self, mmax, mmin, a, b, **kargs)
         self.coords = coords
 
-    def calculateDistanceDistribution(self, ip):
+    def calculateDistanceDistribution(self, ip: np.ndarray) -> None:
         self.r = np.linalg.norm(self.coords-ip, axis=1)
         self.Pr = np.zeros(self.r.shape)+1.0
 
 
 class Line(SeismicSource):
-    def __init__(self, coords, mmax, mmin, a, b, nr=10, ns=10, **kargs):
+    def __init__(self, coords: np.ndarray, mmax: float, mmin: float, a: float, b: float, nr: int = 10, ns: int = 10, **kargs) -> None:
         self.coords = coords
         self.ns = ns
         self.nr = nr
         SeismicSource.__init__(self, mmax, mmin, a, b, **kargs)
 
-    def calculateDistanceDistribution(self, ip):
+    def calculateDistanceDistribution(self, ip: np.ndarray) -> None:
         # FIXME hay una manera mas general
         dmin = np.linalg.norm(np.cross(
             self.coords[1]-self.coords[0], self.coords[0]-ip))/np.linalg.norm(self.coords[1]-self.coords[0])
@@ -73,18 +75,18 @@ class Line(SeismicSource):
 
 
 class Area(SeismicSource):
-    def __init__(self, coords, mmax, mmin, a, b, nr=10, **kargs):
+    def __init__(self, coords: np.ndarray, mmax: float, mmin: float, a: float, b: float, nr: int = 10, **kargs) -> None:
         self.coords = coords
         self.nr = nr
         SeismicSource.__init__(self, mmax, mmin, a, b, **kargs)
 
-    def mesh(self, fmt='qa'):
+    def mesh(self, fmt: str = 'qa') -> None:
         B = tr.triangulate(dict(vertices=self.coords), fmt)
         self.vertices = B['vertices']
         self.elements = B['triangles']
         self.centros = np.average(self.vertices[self.elements], axis=1)
 
-    def plotMesh(self):
+    def plotMesh(self) -> None:
         kilos = self.coords.tolist()
         kilos += [kilos[0]]
         kilos = np.array(kilos)
@@ -100,7 +102,7 @@ class Area(SeismicSource):
             pass
         plt.gca().set_aspect('equal')
 
-    def calculateDistanceDistribution(self, ip):
+    def calculateDistanceDistribution(self, ip: np.ndarray) -> None:
         n = self.nr
         distancias_posibles = np.linalg.norm(self.vertices, axis=1)
         dmax = np.max(distancias_posibles)
@@ -117,10 +119,10 @@ class Area(SeismicSource):
 
 class Rectangle(Area):
 
-    def __init__(self, coords, mmax, mmin, a, b, nr=10, **kargs):
+    def __init__(self, coords: np.ndarray, mmax: float, mmin: float, a: float, b: float, nr: int = 10, **kargs) -> None:
         Area.__init__(self, coords, mmax, mmin, a, b, nr=nr, **kargs)
 
-    def mesh(self, nx=10, ny=10):
+    def mesh(self, nx: int = 10, ny: int = 10) -> None:
         coords0 = self.coords-np.min(self.coords, axis=0)
         _a = coords0[1][0]
         _b = coords0[2][1]
@@ -156,12 +158,12 @@ class SeismicSourceModel():
     """docstring for SeismicSourceModel
     """
 
-    def __init__(self, interest_point, sources=None):
+    def __init__(self, interest_point, sources: List[SeismicSource] = None) -> None:
         self.ip = interest_point
         self.sources = sources or []
         for s in self.sources:
             s.calculateDistanceDistribution(self.ip)
 
-    def addSource(self, source):
+    def addSource(self, source: SeismicSource) -> None:
         source.calculateDistanceDistribution(self.ip)
         self.sources.append(source)

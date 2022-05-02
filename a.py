@@ -14,14 +14,12 @@ sources += [Line(coords, 7.3, 4.0, 4.4, 1.0, nr=10, ns=1000, nm=10)]
 coords = np.array([[20, 18.0], [100.0, 18.0], [100.0, 78.0], [20.0, 78.0]])
 sources += [Rectangle(coords, 7.7, 4.0, 3.5, 0.8, nr=10, nm=10)]
 sources[-1].mesh(80, 60)
-# sources[-1].plotMesh()
+sources[-1].plotMesh()
 plt.show()
 
 O = SeismicSourceModel(ip, sources)
 
-AkkarEtAl_2014()
-# O.sources[0].plotDistanceDistribution()
-# O.sources[1].plotDistanceDistribution()
-# O.sources[2].plotDistanceDistribution()
-# O.sources[3].plotDistanceDistribution()
+O.sources[0].plotDistanceDistribution()
+O.sources[1].plotDistanceDistribution()
+O.sources[2].plotDistanceDistribution()
 a = 0
