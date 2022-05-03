@@ -1,0 +1,34 @@
+PSHA package
+============
+
+.. automodule:: PSHA
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+PSHA.GMM module
+---------------
+
+.. automodule:: PSHA.GMM
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+PSHA.PSHALogger module
+----------------------
+
+.. automodule:: PSHA.PSHALogger
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+PSHA.SSM module
+---------------
+
+.. automodule:: PSHA.SSM
+   :members:
+   :undoc-members:
+   :show-inheritance:
