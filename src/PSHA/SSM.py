@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import triangle as tr
+from scipy.stats import norm
 
 
 class SeismicSource():
@@ -14,13 +15,20 @@ class SeismicSource():
         self.lambdaMin = np.exp(self.alpha-self.beta*self.mmin)
         self.nm = nm
         self.r = None
+        self.gmm = None
         self.Pr = None
         self.dm = (self.mmax-self.mmin)/self.nm
         self.m = np.linspace(self.mmin, self.mmax-self.dm, self.nm)+self.dm/2
         self.Pm = self.beta*np.exp(-self.beta*(self.m-self.mmin))/(
             1-np.exp(-self.beta*(self.mmax-self.mmin)))*self.dm
 
-    def plotDistanceDistribution(self):
+    def setGMM(self, gmm):
+        self.gmm = gmm
+
+    def runGMM(self, **kargs):
+        self.gmmResults = self.gmm.run(self, **kargs)
+
+    def plotDMDistribution(self):
         try:
             dx = self.r[1]-self.r[0]
         except Exception as e:
@@ -37,6 +45,7 @@ class Point(SeismicSource):
     def __init__(self, coords, mmax, mmin, a, b, **kargs):
         SeismicSource.__init__(self, mmax, mmin, a, b, **kargs)
         self.coords = coords
+        self.nr = 1
 
     def calculateDistanceDistribution(self, ip):
         self.r = np.linalg.norm(self.coords-ip, axis=1)
@@ -51,9 +60,9 @@ class Line(SeismicSource):
         SeismicSource.__init__(self, mmax, mmin, a, b, **kargs)
 
     def calculateDistanceDistribution(self, ip):
-        # FIXME hay una manera mas general
-        dmin = np.linalg.norm(np.cross(
-            self.coords[1]-self.coords[0], self.coords[0]-ip))/np.linalg.norm(self.coords[1]-self.coords[0])
+        L = np.linalg.norm(self.coords[1]-self.coords[0])
+        dmin = np.linalg.norm(
+            np.cross(self.coords[1]-self.coords[0], self.coords[0]-ip))/L
         distancias_coords = np.linalg.norm(self.coords-ip, axis=1)
 
         dmax = max(*distancias_coords)
@@ -122,24 +131,16 @@ class Rectangle(Area):
 
     def mesh(self, nx=10, ny=10):
         coords0 = self.coords-np.min(self.coords, axis=0)
-        _a = coords0[1][0]
-        _b = coords0[2][1]
-
-        dx = _a/nx
-        dy = _b/ny
-
+        dx = coords0[1][0]/nx
+        dy = coords0[2][1]/ny
         coords = []
-
         for i in range(nx+1):
             x = i*dx
             for j in range(ny+1):
                 y = j*dy
                 coords += [[x, y]]
-
         dicc = []
-
         def node(i, j): return i*(ny+1)+j
-
         for i in range(nx):
             for j in range(ny):
                 node1 = node(i, j)
@@ -153,8 +154,6 @@ class Rectangle(Area):
 
 
 class SeismicSourceModel():
-    """docstring for SeismicSourceModel
-    """
 
     def __init__(self, interest_point, sources=None):
         self.ip = interest_point
@@ -165,3 +164,33 @@ class SeismicSourceModel():
     def addSource(self, source):
         source.calculateDistanceDistribution(self.ip)
         self.sources.append(source)
+
+    def solve(self, **kargs):
+        limt = 0.0
+        for s in self.sources:
+            s.runGMM(**kargs)
+            meanLnSa, sigmaLnSa, meanSa, medianSa = s.gmmResults
+            nT = s.gmm.nT
+            nSa = 15
+            Sa = np.logspace(np.log10(0.001), np.log10(1), nSa)
+
+            s.probaAtn = np.zeros([nT, len(s.m), len(s.r), nSa])
+            s.mat_lambda_im = np.zeros([nT, len(s.m), len(s.r), nSa])
+            s.lambda_im = np.zeros([nT, nSa])
+
+            for j in range(nT):
+                for y in range(nSa):
+                    for z in range(len(s.r)):
+                        for k in range(len(s.m)):
+                            s.probaAtn[j, k, z, y] = 1.0 - \
+                                norm.cdf(
+                                    np.log(Sa[y]), meanLnSa[k, z, j], sigmaLnSa[j])
+                            s.mat_lambda_im[j, k, z, y] = s.probaAtn[j,
+                                                                     k, z, y]*s.Pm[k]*s.Pr[z]*s.lambdaMin
+            for j in range(nT):
+                for y in range(nSa):
+                    s.lambda_im[j, y] = np.sum(
+                        np.sum(s.mat_lambda_im[j, :, :, y]))
+            limt += s.lambda_im
+        self.lambda_im_tot = limt
+        return self.lambda_im_tot
