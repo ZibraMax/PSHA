@@ -9,10 +9,10 @@ tests package
 Submodules
 ----------
 
-tests.test\_PSHA module
------------------------
+tests.test\_SSM module
+----------------------
 
-.. automodule:: tests.test_PSHA
+.. automodule:: tests.test_SSM
    :members:
    :undoc-members:
    :show-inheritance:
