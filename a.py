@@ -30,7 +30,7 @@ O = SeismicSourceModel(ip, [punto, linea, rectangulo])
 
 # O.sources[0].plotDMDistribution()
 # O.sources[1].plotDMDistribution()
-# O.sources[2].plotDMDistribution()
+# O.sources[2].plot5DMDistribution()
 
 O.solve()
 
