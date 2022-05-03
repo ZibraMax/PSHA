@@ -229,7 +229,12 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m venv .venv
 python -m pip install build
 python -m build
-python -m pip install -e .
+</pre></div>
+</div>
+<p>Then select one of these:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python -m pip install -e . <span class="c1"># Basic instalation</span>
+python -m pip install -e .<span class="o">[</span>docs<span class="o">]</span> <span class="c1"># Basic instalation with docs</span>
+python -m pip install -e .<span class="o">[</span>docs,test<span class="o">]</span> <span class="c1"># Basic instalation with docs and testing</span>
 </pre></div>
 </div>
 </section>
