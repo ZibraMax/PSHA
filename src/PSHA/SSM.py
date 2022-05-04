@@ -6,7 +6,26 @@ from scipy.stats import norm
 
 
 class SeismicSource():
+    """Creates a general Seismic Source object.
+
+    Args:
+        mmax (float): Max magnitude
+        mmin (float): Min magnitude
+        a (float): a parameter of Rayleight law
+        b (float): b parameter of Rayleight law
+        nm (int, optional): Number of magnitudes to divide. Defaults to 10.
+    """
+
     def __init__(self, mmax: float, mmin: float, a: float, b: float, nm: int = 10) -> None:
+        """Creates a general Seismic Source object.
+
+        Args:
+            mmax (float): Max magnitude
+            mmin (float): Min magnitude
+            a (float): a parameter of Rayleight law
+            b (float): b parameter of Rayleight law
+            nm (int, optional): Number of magnitudes to divide. Defaults to 10.
+        """
 
         self.mmax = mmax
         self.mmin = mmin
@@ -24,13 +43,22 @@ class SeismicSource():
         self.Pm = self.beta*np.exp(-self.beta*(self.m-self.mmin))/(
             1-np.exp(-self.beta*(self.mmax-self.mmin)))*self.dm
 
-    def setGMM(self, gmm):
+    def setGMM(self, gmm: 'GMM'):
+        """Sets the GMM to the current seismic source
+
+        Args:
+            gmm (GMM): GMM object
+        """
         self.gmm = gmm
 
     def runGMM(self, **kargs):
+        """Run the GMM with the current seismic source
+        """
         self.gmmResults = self.gmm.run(self, **kargs)
 
     def plotDMDistribution(self) -> None:
+        """Creates a distance an magnitude distribution plot
+        """
         try:
             dx = self.r[1]-self.r[0]
         except Exception as e:
