@@ -343,18 +343,38 @@ If deemed appropriate, the record may be modified in-place.</p>
 <dt class="sig sig-object py" id="PSHA.SSM.SeismicSource">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PSHA.SSM.</span></span><span class="sig-name descname"><span class="pre">SeismicSource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.SSM.SeismicSource" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates a general Seismic Source object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mmax</strong> (<em>float</em>) – Max magnitude</p></li>
+<li><p><strong>mmin</strong> (<em>float</em>) – Min magnitude</p></li>
+<li><p><strong>a</strong> (<em>float</em>) – a parameter of Rayleight law</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – b parameter of Rayleight law</p></li>
+<li><p><strong>nm</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of magnitudes to divide. Defaults to 10.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="PSHA.SSM.SeismicSource.plotDMDistribution">
 <span class="sig-name descname"><span class="pre">plotDMDistribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#PSHA.SSM.SeismicSource.plotDMDistribution" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a distance an magnitude distribution plot</p>
+</dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="PSHA.SSM.SeismicSource.runGMM">
 <span class="sig-name descname"><span class="pre">runGMM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.SSM.SeismicSource.runGMM" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<dd><p>Run the GMM with the current seismic source</p>
+</dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="PSHA.SSM.SeismicSource.setGMM">
-<span class="sig-name descname"><span class="pre">setGMM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gmm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.SSM.SeismicSource.setGMM" title="Permalink to this definition">#</a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">setGMM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gmm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#PSHA.GMM.GMM" title="PSHA.GMM.GMM"><span class="pre">GMM</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#PSHA.SSM.SeismicSource.setGMM" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets the GMM to the current seismic source</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gmm</strong> (<a class="reference internal" href="#PSHA.GMM.GMM" title="PSHA.GMM.GMM"><em>GMM</em></a>) – GMM object</p>
+</dd>
+</dl>
+</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="PSHA.SSM.SeismicSourceModel">
