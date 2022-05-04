@@ -15,5 +15,4 @@ Then select one of these:
 ```shell
 python -m pip install -e . # Basic instalation
 python -m pip install -e .[docs] # Basic instalation with docs
-python -m pip install -e .[docs,test] # Basic instalation with docs and testing
 ```
